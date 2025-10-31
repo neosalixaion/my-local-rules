@@ -1,16 +1,79 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <title>Добавить домен</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; }
-    input, button { padding: 10px; font-size: 16px; }
-    #status { margin-top: 20px; font-weight: bold; }
+    :root {
+      --bg: #111;
+      --fg: #eee;
+      --accent: #00c896;
+      --input-bg: #222;
+      --input-fg: #fff;
+    }
+    [data-theme="light"] {
+      --bg: #fff;
+      --fg: #000;
+      --input-bg: #f0f0f0;
+      --input-fg: #000;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 400px;
+      border: none;
+      border-radius: 6px;
+    }
+
+    input {
+      background: var(--input-bg);
+      color: var(--input-fg);
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
-  <h2>Добавить домен в <code>my-local-rules.yaml</code></h2>
+  <div class="theme-toggle" onclick="toggleTheme()">🌗 Переключить тему</div>
+  <h1>Добавить домен</h1>
   <form id="domainForm">
     <input type="text" id="domainInput" placeholder="example.com" required />
     <button type="submit">Добавить</button>
@@ -18,10 +81,26 @@
   <div id="status"></div>
 
   <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+
+    function isValidDomain(domain) {
+      const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/;
+      return domainRegex.test(domain);
+    }
+
     document.getElementById('domainForm').onsubmit = async (e) => {
       e.preventDefault();
       const domain = document.getElementById('domainInput').value.trim();
-      if (!domain) return;
+
+      if (!isValidDomain(domain)) {
+        document.getElementById('status').textContent = `⚠️ Неверный формат домена`;
+        return;
+      }
+
+      document.getElementById('status').textContent = '⏳ Отправка...';
 
       const res = await fetch('/api/add-domain', {
         method: 'POST',
