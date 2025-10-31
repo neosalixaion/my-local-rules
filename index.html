@@ -25,14 +25,27 @@
       background: var(--bg);
       color: var(--fg);
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       font-size: 24px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 20px;
     }
 
     input, button {
@@ -40,9 +53,9 @@
       font-size: 16px;
       margin: 10px 0;
       width: 100%;
-      max-width: 400px;
       border: none;
       border-radius: 6px;
+      box-sizing: border-box;
     }
 
     input {
@@ -59,26 +72,57 @@
     #status {
       margin-top: 20px;
       font-weight: bold;
+      min-height: 24px;
     }
 
     .theme-toggle {
-      position: absolute;
+      position: fixed;
       top: 10px;
       right: 10px;
       cursor: pointer;
       font-size: 14px;
       color: var(--accent);
     }
+
+    .success {
+      animation: flash-success 0.6s ease;
+      color: #00ffae;
+    }
+
+    .error {
+      animation: shake-error 0.4s ease;
+      color: #ff4d4d;
+    }
+
+    @keyframes flash-success {
+      0% { background-color: transparent; }
+      50% { background-color: #003f2e; }
+      100% { background-color: transparent; }
+    }
+
+    @keyframes shake-error {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
   </style>
 </head>
 <body>
   <div class="theme-toggle" onclick="toggleTheme()">🌗 Переключить тему</div>
-  <h1>Добавить домен</h1>
-  <form id="domainForm">
-    <input type="text" id="domainInput" placeholder="example.com" required />
-    <button type="submit">Добавить</button>
-  </form>
-  <div id="status"></div>
+  <div class="container">
+    <h1>Добавить домен</h1>
+    <div class="description">
+      Введите домен в формате <strong>example.com</strong> или <strong>sub.domain.ru</strong><br>
+      Без <code>http://</code>, <code>https://</code>, слэшей и пробелов
+    </div>
+    <form id="domainForm">
+      <input type="text" id="domainInput" placeholder="example.com" required />
+      <button type="submit">Добавить</button>
+    </form>
+    <div id="status"></div>
+  </div>
 
   <script>
     function toggleTheme() {
@@ -91,16 +135,27 @@
       return domainRegex.test(domain);
     }
 
+    function showStatus(message, type) {
+      const status = document.getElementById('status');
+      status.textContent = message;
+      status.className = type; // 'success' или 'error'
+
+      setTimeout(() => {
+        status.textContent = '';
+        status.className = '';
+      }, 3000);
+    }
+
     document.getElementById('domainForm').onsubmit = async (e) => {
       e.preventDefault();
       const domain = document.getElementById('domainInput').value.trim();
 
       if (!isValidDomain(domain)) {
-        document.getElementById('status').textContent = `⚠️ Неверный формат домена`;
+        showStatus('⚠️ Неверный формат домена', 'error');
         return;
       }
 
-      document.getElementById('status').textContent = '⏳ Отправка...';
+      showStatus('⏳ Отправка...', '');
 
       const res = await fetch('/api/add-domain', {
         method: 'POST',
@@ -109,9 +164,11 @@
       });
 
       const result = await res.json();
-      document.getElementById('status').textContent = result.success
-        ? `✅ Домен ${domain} отправлен`
-        : `❌ Ошибка: ${result.error || 'не удалось отправить'}`;
+      if (result.success) {
+        showStatus(`✅ Домен ${domain} отправлен`, 'success');
+      } else {
+        showStatus(`❌ Ошибка: ${result.error || 'не удалось отправить'}`, 'error');
+      }
     };
   </script>
 </body>
