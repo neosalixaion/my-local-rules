@@ -164,11 +164,12 @@
           body: JSON.stringify({ domain })
         });
 
+        const statusCode = res.status;
         const result = await res.json();
 
-        if (res.status === 409) {
+        if (statusCode === 409) {
           showStatus(`❌ ${result.error}`, 'error');
-        } else if (res.status === 200 && result.success) {
+        } else if (statusCode === 200 && result.success) {
           showStatus(`✅ Домен ${domain} отправлен`, 'success');
           document.getElementById('domainInput').value = '';
         } else {
