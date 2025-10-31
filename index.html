@@ -138,7 +138,7 @@
     function showStatus(message, type) {
       const status = document.getElementById('status');
       status.textContent = message;
-      status.className = type; // 'success' или 'error'
+      status.className = type;
 
       setTimeout(() => {
         status.textContent = '';
@@ -164,7 +164,9 @@
       });
 
       const result = await res.json();
-      if (result.success) {
+      if (res.status === 409) {
+        showStatus(`❌ ${result.error}`, 'error');
+      } else if (result.success) {
         showStatus(`✅ Домен ${domain} отправлен`, 'success');
       } else {
         showStatus(`❌ Ошибка: ${result.error || 'не удалось отправить'}`, 'error');
