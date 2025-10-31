@@ -25,7 +25,7 @@ jobs:
       - name: Check if domain already exists
         id: check
         run: |
-          if grep -q "+.$DOMAIN" my-local-rules.yaml; then
+          if grep -q "'+.$DOMAIN'" my-local-rules.yaml; then
             echo "EXISTS=true" >> $GITHUB_ENV
           else
             echo "EXISTS=false" >> $GITHUB_ENV
@@ -34,7 +34,7 @@ jobs:
       - name: Append domain if not exists
         if: env.EXISTS == 'false'
         run: |
-          echo "  - +.$DOMAIN" >> my-local-rules.yaml
+          echo "  - '+.$DOMAIN'" >> my-local-rules.yaml
 
       - name: Commit and push changes
         if: env.EXISTS == 'false'
