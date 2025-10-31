@@ -1,0 +1,30 @@
+name: Add domain from issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Parse domain from issue title
+        id: parse
+        run: |
+          DOMAIN=$(echo "${{ github.event.issue.title }}" | sed 's/Добавить: //')
+          echo "DOMAIN=$DOMAIN" >> $GITHUB_ENV
+
+      - name: Append domain to YAML
+        run: |
+          echo "  - DOMAIN-SUFFIX,$DOMAIN,PROXY" >> my-local-rules.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add my-local-rules.yaml
+          git commit -m "Добавлен домен $DOMAIN из issue"
+          git push
