@@ -13,10 +13,10 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script type="module" defer>
     // Fix flags emoji in some browsers on Windows
-    import { polyfillCountryFlagEmojis } from "https://cdn.skypack.dev/country-flag-emoji-polyfill";
+    import { polyfillCountryFlagEmojis } from "/assets/libs/country-flag-emoji-polyfill.js"; polyfillCountryFlagEmojis();
     polyfillCountryFlagEmojis();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script src="/assets/libs/qrcode.min.js"></script>
     <style>
 :root {
     --primary-color: #3b82f6;
@@ -1037,7 +1037,7 @@ body {
         }
 
         function loadAppsConfig() {
-            fetch('https://cdn.jsdelivr.net/gh/legiz-ru/my-remnawave@main/sub-page/multiapp/app-config.json')
+            fetch('/assets/config/app-config.json')
                 .then(response => {
                     if (!response.ok) {
                         return Promise.reject(`Failed to load with status: ${response.status}`);
