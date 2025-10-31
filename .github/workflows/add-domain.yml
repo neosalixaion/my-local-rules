@@ -11,7 +11,7 @@ jobs:
   update-rules:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Parse domain from issue title
@@ -22,7 +22,7 @@ jobs:
 
       - name: Append domain to YAML
         run: |
-          echo "  - DOMAIN-SUFFIX,$DOMAIN,PROXY" >> my-local-rules.yaml
+          echo "  - +.$DOMAIN" >> my-local-rules.yaml
 
       - name: Commit and push changes
         run: |
