@@ -4,14 +4,14 @@ import yaml from 'js-yaml';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ success: false, error: 'Method not allowed' });
   }
 
   const { domain } = req.body;
   const token = process.env.GITHUB_TOKEN;
 
   if (!domain || !token) {
-    return res.status(400).json({ error: 'Missing domain or token' });
+    return res.status(400).json({ success: false, error: 'Missing domain or token' });
   }
 
   const normalized = domain.replace(/^www\./, '').toLowerCase();
@@ -23,18 +23,17 @@ export default async function handler(req, res) {
     rules = yaml.load(file);
 
     if (!Array.isArray(rules?.payload)) {
-      return res.status(500).json({ error: 'YAML повреждён или не содержит payload' });
+      return res.status(500).json({ success: false, error: 'YAML повреждён или не содержит payload' });
     }
   } catch (err) {
-    return res.status(500).json({ error: 'Ошибка при чтении YAML' });
+    return res.status(500).json({ success: false, error: 'Ошибка при чтении YAML' });
   }
 
   const exists = rules.payload.some(rule => rule === `'+.${normalized}'`);
   if (exists) {
-    return res.status(409).json({ error: 'Домен уже в списке' });
+    return res.status(409).json({ success: false, error: 'Домен уже в списке' });
   }
 
-  // Создание issue
   try {
     const response = await fetch(`https://api.github.com/repos/neosalixaion/my-local-rules/issues`, {
       method: 'POST',
@@ -49,12 +48,12 @@ export default async function handler(req, res) {
     });
 
     if (response.ok) {
-      res.status(200).json({ success: true });
+      return res.status(200).json({ success: true });
     } else {
       const error = await response.json();
-      res.status(response.status).json({ error: error.message || 'Ошибка при создании issue' });
+      return res.status(response.status).json({ success: false, error: error.message || 'Ошибка при создании issue' });
     }
   } catch (err) {
-    res.status(500).json({ error: 'Ошибка при подключении к GitHub' });
+    return res.status(500).json({ success: false, error: 'Ошибка при подключении к GitHub' });
   }
 }
