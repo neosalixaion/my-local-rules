@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Добавить домен в Clash</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; }
+    input, button { padding: 10px; font-size: 16px; }
+    #status { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Добавить домен в <code>my-local-rules.yaml</code></h2>
+  <form id="domainForm">
+    <input type="text" id="domainInput" placeholder="example.com" required />
+    <button type="submit">Добавить</button>
+  </form>
+  <div id="status"></div>
+
+  <script>
+    const token = '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'; // 🔐 Вставь свой GitHub Token
+    const repo = 'neosalixaion/my-local-rules';
+    const filePath = 'my-local-rules.yaml';
+
+    document.getElementById('domainForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const domain = document.getElementById('domainInput').value.trim();
+      if (!domain) return;
+
+      const status = document.getElementById('status');
+      status.textContent = '⏳ Обновление...';
+
+      try {
+        const res = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+          headers: { Authorization: `token ${token}` }
+        });
+        const data = await res.json();
+        const content = atob(data.content);
+        const newLine = `  - DOMAIN-SUFFIX,${domain},PROXY`;
+
+        if (content.includes(newLine)) {
+          status.textContent = `⚠️ ${domain} уже есть в списке`;
+          return;
+        }
+
+        const updated = content + '\n' + newLine;
+
+        await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+          method: 'PUT',
+          headers: { Authorization: `token ${token}` },
+          body: JSON.stringify({
+            message: `Добавлен ${domain}`,
+            content: btoa(updated),
+            sha: data.sha
+          })
+        });
+
+        status.textContent = `✅ ${domain} добавлен`;
+        document.getElementById('domainInput').value = '';
+      } catch (err) {
+        console.error(err);
+        status.textContent = '❌ Ошибка при обновлении';
+      }
+    };
+  </script>
+</body>
+</html>
 
