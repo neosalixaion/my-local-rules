@@ -143,7 +143,7 @@
       setTimeout(() => {
         status.textContent = '';
         status.className = '';
-      }, 3000);
+      }, 4000);
     }
 
     document.getElementById('domainForm').onsubmit = async (e) => {
@@ -157,19 +157,25 @@
 
       showStatus('⏳ Отправка...', '');
 
-      const res = await fetch('/api/add-domain', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ domain })
-      });
+      try {
+        const res = await fetch('/api/add-domain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ domain })
+        });
 
-      const result = await res.json();
-      if (res.status === 409) {
-        showStatus(`❌ ${result.error}`, 'error');
-      } else if (result.success) {
-        showStatus(`✅ Домен ${domain} отправлен`, 'success');
-      } else {
-        showStatus(`❌ Ошибка: ${result.error || 'не удалось отправить'}`, 'error');
+        const result = await res.json();
+
+        if (res.status === 409) {
+          showStatus(`❌ ${result.error}`, 'error');
+        } else if (res.status === 200 && result.success) {
+          showStatus(`✅ Домен ${domain} отправлен`, 'success');
+          document.getElementById('domainInput').value = '';
+        } else {
+          showStatus(`❌ Ошибка: ${result.error || 'не удалось отправить'}`, 'error');
+        }
+      } catch (err) {
+        showStatus('❌ Ошибка соединения с сервером', 'error');
       }
     };
   </script>
