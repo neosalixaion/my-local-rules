@@ -26,3 +26,4 @@ payload:
   - '+.7tv.io'
   - '+.clashfor.org'
   - '+.iqsaved.com'
+  - DOMAIN-SUFFIX,testdomain2.ru,PROXY
