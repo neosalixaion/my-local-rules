@@ -22,20 +22,26 @@ export default async function handler(req, res) {
     const file = fs.readFileSync(yamlPath, 'utf8');
     rules = yaml.load(file);
 
-    if (!Array.isArray(rules?.payload)) {
+    if (!rules || !Array.isArray(rules.payload)) {
       return res.status(500).json({ success: false, error: 'YAML повреждён или не содержит payload' });
     }
   } catch (err) {
     return res.status(500).json({ success: false, error: 'Ошибка при чтении YAML' });
   }
 
-  const exists = rules.payload.some(rule => rule === `'+.${normalized}'`);
+  // Устойчивое сравнение: удаляем +. и кавычки
+  const exists = rules.payload.some(rule => {
+    const cleaned = rule.replace(/^['"]?\+\./, '').replace(/['"]$/, '').toLowerCase();
+    return cleaned === normalized;
+  });
+
   if (exists) {
     return res.status(409).json({ success: false, error: 'Домен уже в списке' });
   }
 
+  // Создание issue на GitHub
   try {
-    const response = await fetch(`https://api.github.com/repos/neosalixaion/my-local-rules/issues`, {
+    const response = await fetch('https://api.github.com/repos/neosalixaion/my-local-rules/issues', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -51,7 +57,10 @@ export default async function handler(req, res) {
       return res.status(200).json({ success: true });
     } else {
       const error = await response.json();
-      return res.status(response.status).json({ success: false, error: error.message || 'Ошибка при создании issue' });
+      return res.status(response.status).json({
+        success: false,
+        error: error.message || 'Ошибка при создании issue',
+      });
     }
   } catch (err) {
     return res.status(500).json({ success: false, error: 'Ошибка при подключении к GitHub' });
