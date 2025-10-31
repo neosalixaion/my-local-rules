@@ -1,3 +1,7 @@
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -10,7 +14,23 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing domain or token' });
   }
 
-  const response = await fetch('https://api.github.com/repos/neosalixaion/my-local-rules/issues', {
+  const normalized = domain.replace(/^www\./, '').toLowerCase();
+  const yamlPath = path.join(process.cwd(), 'my-local-rules.yaml');
+
+  try {
+    const file = fs.readFileSync(yamlPath, 'utf8');
+    const rules = yaml.load(file);
+
+    const exists = rules.some(rule => rule === `'+.${normalized}'`);
+    if (exists) {
+      return res.status(409).json({ error: 'Домен уже в списке' });
+    }
+  } catch (err) {
+    return res.status(500).json({ error: 'Ошибка при чтении YAML' });
+  }
+
+  // Создание issue
+  const response = await fetch(`https://api.github.com/repos/neosalixaion/my-local-rules/issues`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -26,6 +46,6 @@ export default async function handler(req, res) {
     res.status(200).json({ success: true });
   } else {
     const error = await response.json();
-    res.status(response.status).json({ error: error.message || 'GitHub issue creation failed' });
+    res.status(response.status).json({ error: error.message || 'Ошибка при создании issue' });
   }
 }
