@@ -2,8 +2,9 @@ name: Sort YAML
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
+    paths:
+      - 'my-local-rules.yaml'
+  workflow_dispatch:
 
 permissions:
   contents: write   # <-- даёт право на push
