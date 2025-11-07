@@ -39,7 +39,7 @@ jobs:
           if (Array.isArray(data.payload)) {
             data.payload = [...new Set(data.payload)]
               .sort((a, b) => a.localeCompare(b, 'ru', { sensitivity: 'base' }))
-              .map(item => `'${item}'`); // оборачиваем в одинарные кавычки
+              .map(item => `'${item.replace(/^['"]+|['"]+$/g, '')}'`); // оборачиваем в одинарные кавычки
           }
 
           fs.writeFileSync('my-local-rules.yaml', yaml.dump(data, { lineWidth: -1 }));
