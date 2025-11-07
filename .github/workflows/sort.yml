@@ -22,9 +22,9 @@ jobs:
 
       - name: Sort payload alphabetically
         run: |
-          node - <<'EOF'
-          import fs from 'fs';
-          import yaml from 'js-yaml';
+          node <<'EOF'
+          const fs = require('fs');
+          const yaml = require('js-yaml');
 
           const file = fs.readFileSync('my-local-rules.yaml', 'utf8');
           const data = yaml.load(file);
