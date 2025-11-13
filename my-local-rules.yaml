@@ -46,3 +46,4 @@ payload:
   - '+.picaapi.com'
   - '+.pica-cdn.com'
   - '+.ai-resource-cdn.com'
+  - '+.cloudflareinsights.com'
