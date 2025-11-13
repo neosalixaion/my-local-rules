@@ -1,17 +1,27 @@
 payload:
   - +.7tv.io
+  - +.addtoany.com
   - +.adoptium.net
+  - +.ai-resource-cdn.com
   - +.aifaceswapper.io
   - +.akamaized.net
+  - +.alicdn.com
+  - +.arting.ai
+  - +.baimgs.com
   - +.beart.ai
   - +.behance.net
   - +.betterttv.net
   - +.clashfor.org
+  - +.cloudflareinsights.com
+  - +.cloudflarestorage.com
   - +.convertio.co
   - +.convertio.me
+  - +.crisp.chat
   - +.curseforge.com
+  - +.deep-api.com
   - +.dxomark.com
   - +.forgecdn.net
+  - +.hsforms.net
   - +.imgcrate.com
   - +.iqsaved.com
   - +.jdi.su
@@ -19,32 +29,22 @@ payload:
   - +.melvor.net
   - +.melvore.net
   - +.melvoridle.com
+  - +.midjourney.com
   - +.miraheze.org
   - +.modapi.io
+  - +.openart.ai
   - +.overwolf.com
+  - +.pica-cdn.com
+  - +.picaapi.com
   - +.playfab.com
   - +.playfabapi.com
   - +.qwins.co
+  - +.scorecardresearch.com
   - +.split.io
+  - +.stability.ai
+  - +.stabledifffusion.com
+  - +.stablediffusionxl.com
+  - +.staticspic.com
+  - +.tawk.to
   - +.ttvnw.net
   - +.wikitide.net
-  - '+.stablediffusionxl.com'
-  - '+.openart.ai'
-  - '+.midjourney.com'
-  - '+.stabledifffusion.com'
-  - '+.stability.ai'
-  - '+.hsforms.net'
-  - '+.baimgs.com'
-  - '+.cloudflarestorage.com'
-  - '+.addtoany.com'
-  - '+.tawk.to'
-  - '+.scorecardresearch.com'
-  - '+.deep-api.com'
-  - '+.arting.ai'
-  - '+.crisp.chat'
-  - '+.staticspic.com'
-  - '+.picaapi.com'
-  - '+.pica-cdn.com'
-  - '+.ai-resource-cdn.com'
-  - '+.cloudflareinsights.com'
-  - '+.alicdn.com'
