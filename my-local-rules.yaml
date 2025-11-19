@@ -14,6 +14,7 @@ payload:
   - +.clashfor.org
   - +.cloudflareinsights.com
   - +.cloudflarestorage.com
+  - +.cloudfront.net
   - +.convertio.co
   - +.convertio.me
   - +.crisp.chat
@@ -21,6 +22,7 @@ payload:
   - +.deep-api.com
   - +.dxomark.com
   - +.forgecdn.net
+  - +.gtnewhorizons.com
   - +.hsforms.net
   - +.imgcrate.com
   - +.iqsaved.com
@@ -38,6 +40,7 @@ payload:
   - +.picaapi.com
   - +.playfab.com
   - +.playfabapi.com
+  - +.promeai.pro
   - +.qwins.co
   - +.scorecardresearch.com
   - +.split.io
@@ -47,8 +50,5 @@ payload:
   - +.staticspic.com
   - +.tawk.to
   - +.ttvnw.net
+  - +.vintagestory.at
   - +.wikitide.net
-  - '+.vintagestory.at'
-  - '+.gtnewhorizons.com'
-  - '+.promeai.pro'
-  - '+.cloudfront.net'
