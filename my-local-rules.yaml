@@ -1,4 +1,5 @@
 payload:
+  - +.4pda.to
   - +.7tv.io
   - +.addtoany.com
   - +.adoptium.net
@@ -19,16 +20,20 @@ payload:
   - +.convertio.co
   - +.convertio.me
   - +.crisp.chat
+  - +.crwdcntrl.net
   - +.curseforge.com
   - +.deep-api.com
   - +.dxomark.com
+  - +.feed-the-beast.com
   - +.forgecdn.net
   - +.gtnewhorizons.com
   - +.hsforms.net
+  - +.hysteria.network
   - +.imgcrate.com
   - +.invisioncic.com
   - +.iqsaved.com
   - +.jdi.su
+  - +.juvio.com
   - +.mega.co.nz
   - +.melvor.net
   - +.melvore.net
@@ -36,6 +41,7 @@ payload:
   - +.midjourney.com
   - +.miraheze.org
   - +.modapi.io
+  - +.msn.com
   - +.openart.ai
   - +.overwolf.com
   - +.pica-cdn.com
@@ -52,12 +58,6 @@ payload:
   - +.staticspic.com
   - +.tawk.to
   - +.ttvnw.net
+  - +.typekit.net
   - +.vintagestory.at
   - +.wikitide.net
-  - '+.hysteria.network'
-  - '+.4pda.to'
-  - '+.typekit.net'
-  - '+.msn.com'
-  - '+.feed-the-beast.com'
-  - '+.crwdcntrl.net'
-  - '+.juvio.com'
