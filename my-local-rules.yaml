@@ -11,6 +11,7 @@ payload:
   - +.beart.ai
   - +.behance.net
   - +.betterttv.net
+  - +.browser-intake-datadoghq.com
   - +.clashfor.org
   - +.cloudflareinsights.com
   - +.cloudflarestorage.com
@@ -25,6 +26,7 @@ payload:
   - +.gtnewhorizons.com
   - +.hsforms.net
   - +.imgcrate.com
+  - +.invisioncic.com
   - +.iqsaved.com
   - +.jdi.su
   - +.mega.co.nz
@@ -52,5 +54,3 @@ payload:
   - +.ttvnw.net
   - +.vintagestory.at
   - +.wikitide.net
-  - '+.browser-intake-datadoghq.com'
-  - '+.invisioncic.com'
