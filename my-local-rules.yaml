@@ -1,5 +1,7 @@
 payload:
+  - +.2ip.io
   - +.4pda.to
+  - +.7tv.app
   - +.7tv.io
   - +.addtoany.com
   - +.adoptium.net
@@ -7,11 +9,14 @@ payload:
   - +.aifaceswapper.io
   - +.akamaized.net
   - +.alicdn.com
+  - +.arkoselabs.com
   - +.arting.ai
   - +.baimgs.com
   - +.beart.ai
   - +.behance.net
   - +.betterttv.net
+  - +.bisecthosting.com
+  - +.blox.com
   - +.browser-intake-datadoghq.com
   - +.clashfor.org
   - +.cloudflareinsights.com
@@ -23,17 +28,30 @@ payload:
   - +.crwdcntrl.net
   - +.curseforge.com
   - +.deep-api.com
+  - +.di-rbx.com
   - +.dxomark.com
   - +.feed-the-beast.com
   - +.forgecdn.net
+  - +.goblocks.com
+  - +.goblox.com
+  - +.gooblox.com
+  - +.gost.run
   - +.gtnewhorizons.com
   - +.hsforms.net
+  - +.humancoexperience.com
   - +.hysteria.network
   - +.imgcrate.com
   - +.invisioncic.com
   - +.iqsaved.com
   - +.jdi.su
   - +.juvio.com
+  - +.leakshaven.com
+  - +.luau-lang.org
+  - +.luau.org
+  - +.luobu.biz
+  - +.luobu.info
+  - +.luobu.io
+  - +.luobu.org
   - +.mega.co.nz
   - +.melvor.net
   - +.melvore.net
@@ -50,37 +68,6 @@ payload:
   - +.playfabapi.com
   - +.promeai.pro
   - +.qwins.co
-  - +.scorecardresearch.com
-  - +.split.io
-  - +.stability.ai
-  - +.stabledifffusion.com
-  - +.stablediffusionxl.com
-  - +.staticspic.com
-  - +.tawk.to
-  - +.ttvnw.net
-  - +.typekit.net
-  - +.vintagestory.at
-  - +.wikitide.net
-  - '+.2ip.io'
-  - '+.leakshaven.com'
-  - '+.7tv.app'
-  - '+.shields.io'
-  - '+.bisecthosting.com'
-  - '+.sm1ky.com'
-  - '+.gost.run'
-  - +.arkoselabs.com
-  - +.blox.com
-  - +.di-rbx.com
-  - +.goblocks.com
-  - +.goblox.com
-  - +.gooblox.com
-  - +.humancoexperience.com
-  - +.luau-lang.org
-  - +.luau.org
-  - +.luobu.biz
-  - +.luobu.info
-  - +.luobu.io
-  - +.luobu.org
   - +.rblx.co
   - +.rblx.com
   - +.rbx-stage.com
@@ -97,8 +84,6 @@ payload:
   - +.ro-blox.com
   - +.roadblocks.com
   - +.roblocks.com
-  - +.robloxlabs.cn
-  - +.robloxlabs.com
   - +.roblox.app
   - +.roblox.ca
   - +.roblox.cc
@@ -131,16 +116,30 @@ payload:
   - +.robloxcorporation.com
   - +.robloxdev.com
   - +.robloxgame.com
+  - +.robloxlabs.cn
+  - +.robloxlabs.com
   - +.robloxmail.com
   - +.robloxmedia.com
   - +.robloxrcs.com
-  - +.robloxtoy.com
   - +.robloxtechtalks.com
+  - +.robloxtoy.com
   - +.robloxuniverse.com
   - +.robux.com
-  - +.rowblox.com
   - +.rowblocks.com
+  - +.rowblox.com
+  - +.scorecardresearch.com
+  - +.shields.io
+  - +.sm1ky.com
+  - +.split.io
+  - +.stability.ai
+  - +.stabledifffusion.com
+  - +.stablediffusionxl.com
+  - +.staticspic.com
+  - +.tawk.to
   - +.tryroblox.com
+  - +.ttvnw.net
+  - +.typekit.net
+  - +.vintagestory.at
+  - +.wikitide.net
   - +.youmakethegame.com
   - +.youmakethegames.com
-
