@@ -14,10 +14,12 @@ payload:
   - +.baimgs.com
   - +.beart.ai
   - +.behance.net
+  - +.betterttv.com
   - +.betterttv.net
   - +.bisecthosting.com
   - +.blox.com
   - +.browser-intake-datadoghq.com
+  - +.clash.wiki
   - +.clashfor.org
   - +.cloudflareinsights.com
   - +.cloudflarestorage.com
@@ -29,6 +31,8 @@ payload:
   - +.curseforge.com
   - +.deep-api.com
   - +.di-rbx.com
+  - +.dnsleaktest.com
+  - +.doreso.com
   - +.dxomark.com
   - +.feed-the-beast.com
   - +.forgecdn.net
@@ -46,6 +50,7 @@ payload:
   - +.jdi.su
   - +.juvio.com
   - +.leakshaven.com
+  - +.libria.fun
   - +.luau-lang.org
   - +.luau.org
   - +.luobu.biz
@@ -143,9 +148,3 @@ payload:
   - +.wikitide.net
   - +.youmakethegame.com
   - +.youmakethegames.com
-  - '+.doreso.com'
-  - '+.betterttv.com'
-  - '+.libria.fun'
-  - '+.dnsleaktest.com'
-  - '+.clash.wiki'
-
