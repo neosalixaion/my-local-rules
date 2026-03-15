@@ -19,11 +19,14 @@ payload:
   - +.bisecthosting.com
   - +.blox.com
   - +.browser-intake-datadoghq.com
+  - +.cdn-telegram.org
   - +.clash.wiki
   - +.clashfor.org
   - +.cloudflareinsights.com
   - +.cloudflarestorage.com
   - +.cloudfront.net
+  - +.comments.app
+  - +.contest.com
   - +.convertio.co
   - +.convertio.me
   - +.crisp.chat
@@ -36,10 +39,12 @@ payload:
   - +.dxomark.com
   - +.feed-the-beast.com
   - +.forgecdn.net
+  - +.fragment.com
   - +.goblocks.com
   - +.goblox.com
   - +.gooblox.com
   - +.gost.run
+  - +.graph.org
   - +.gtnewhorizons.com
   - +.hsforms.net
   - +.humancoexperience.com
@@ -65,6 +70,7 @@ payload:
   - +.miraheze.org
   - +.modapi.io
   - +.msn.com
+  - +.nicegram.app
   - +.openart.ai
   - +.overwolf.com
   - +.pica-cdn.com
@@ -72,6 +78,7 @@ payload:
   - +.playfab.com
   - +.playfabapi.com
   - +.promeai.pro
+  - +.quiz.directory
   - +.qwins.co
   - +.rblx.co
   - +.rblx.com
@@ -140,29 +147,15 @@ payload:
   - +.stabledifffusion.com
   - +.stablediffusionxl.com
   - +.staticspic.com
-  - +.tawk.to
-  - +.tryroblox.com
-  - +.ttvnw.net
-  - +.typekit.net
-  - +.vintagestory.at
-  - +.wikitide.net
-  - +.youmakethegame.com
-  - +.youmakethegames.com
-  - +.cdn-telegram.org
-  - +.comments.app
-  - +.contest.com
-  - +.fragment.com
-  - +.graph.org
-  - +.quiz.directory
+  - +.stel.com
+  - +.t.co
   - +.t.me
+  - +.tawk.to
   - +.tdesktop.com
+  - +.teleg.xyz
   - +.telega.one
   - +.telegra.ph
   - +.telegram-cdn.org
-  - +.telegram.dog
-  - +.telegram.me
-  - +.telegram.org
-  - +.telegram.space
   - +.telegram.ai
   - +.telegram.asia
   - +.telegram.biz
@@ -172,6 +165,7 @@ payload:
   - +.telegram.com
   - +.telegram.de
   - +.telegram.dev
+  - +.telegram.dog
   - +.telegram.eu
   - +.telegram.fr
   - +.telegram.host
@@ -179,27 +173,33 @@ payload:
   - +.telegram.info
   - +.telegram.io
   - +.telegram.jp
+  - +.telegram.me
   - +.telegram.net
+  - +.telegram.org
   - +.telegram.qa
   - +.telegram.ru
   - +.telegram.services
   - +.telegram.solutions
+  - +.telegram.space
   - +.telegram.team
   - +.telegram.tech
   - +.telegram.uk
   - +.telegram.us
   - +.telegram.website
   - +.telegram.xyz
+  - +.telegramapp.org
+  - +.telegramdownload.com
   - +.telesco.pe
   - +.tg.dev
   - +.tg.org
-  - +.tx.me
-  - +.t.co
-  - +.usercontent.dev
-  - +.teleg.xyz
-  - +.telegramapp.org
-  - +.nicegram.app
   - +.tgram.org
   - +.torg.org
-  - +.stel.com
-  - +.telegramdownload.com
+  - +.tryroblox.com
+  - +.ttvnw.net
+  - +.tx.me
+  - +.typekit.net
+  - +.usercontent.dev
+  - +.vintagestory.at
+  - +.wikitide.net
+  - +.youmakethegame.com
+  - +.youmakethegames.com
