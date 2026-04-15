@@ -150,6 +150,7 @@ payload:
   - +.stel.com
   - +.t.co
   - +.t.me
+  - +.tampermonkey.net
   - +.tawk.to
   - +.tdesktop.com
   - +.teleg.xyz
@@ -203,4 +204,3 @@ payload:
   - +.wikitide.net
   - +.youmakethegame.com
   - +.youmakethegames.com
-  - '+.tampermonkey.net'
