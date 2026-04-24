@@ -1,0 +1,3 @@
+payload:
+  - PROCESS-NAME-REGEX,(?i).*pandora.*,🌳 USA [VLESS - tcp]
+  - DOMAIN-SUFFIX,pandora.com,🌳 USA [VLESS - tcp]
