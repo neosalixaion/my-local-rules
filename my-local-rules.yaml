@@ -36,6 +36,7 @@ payload:
   - +.di-rbx.com
   - +.dnsleaktest.com
   - +.doreso.com
+  - +.downdetector.com
   - +.dxomark.com
   - +.feed-the-beast.com
   - +.forgecdn.net
@@ -71,6 +72,7 @@ payload:
   - +.modapi.io
   - +.msn.com
   - +.nicegram.app
+  - +.ntc.rkn.quest
   - +.openart.ai
   - +.overwolf.com
   - +.pica-cdn.com
@@ -205,5 +207,3 @@ payload:
   - +.wikitide.net
   - +.youmakethegame.com
   - +.youmakethegames.com
-  - '+.ntc.rkn.quest'
-  - '+.downdetector.com'
